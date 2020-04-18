@@ -1,0 +1,32 @@
+﻿@model CMS.Models.StudentCourseModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Choose your course...</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CourseName" class="control-label"></label>
+                @Html.DropDownListFor(m => m.CourseID, new SelectList(@ViewBag.ListOfCourses, "ID", "CourseName"), "Select", new { @class = "form-control" })
+                <span asp-validation-for="CourseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitName" class="control-label"></label>
+                @Html.DropDownListFor(m => m.UnitID, new SelectList(@ViewBag.ListOfUnits, "ID", "UnitName"), "Select", new { @class = "form-control" })
+                <span asp-validation-for="UnitName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

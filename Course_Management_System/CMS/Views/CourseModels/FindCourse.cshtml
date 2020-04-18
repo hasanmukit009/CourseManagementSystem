@@ -1,0 +1,17 @@
+﻿@model CMS.Models.CourseModel
+@{
+    ViewData["Title"] = "FindCourse";
+}
+
+<h1>Find Course</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <select asp-for="ID" asp-items="@(new SelectList(@ViewBag.ListOfCourses,"ID","CourseName"))"></select>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
